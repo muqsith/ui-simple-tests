@@ -1,0 +1,51 @@
+
+.positions-container {
+    display: block;
+    margin: 20px;
+    border: 1px dotted;
+}
+
+.positions {
+    height: 70px;
+    width: 70px;
+    border: 1px solid;
+    margin: 10px;
+}
+
+.p-block-1 {
+    display: block;
+    background-color: lightgoldenrodyellow;
+    position: static;
+}
+
+.p-block-2 {
+    display: block;
+    background-color: lightblue;
+    position: relative;
+    left: 500px;
+}
+
+.p-block-3 {
+    display: block;
+    background-color: lightgreen;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    z-index: 1001;
+}
+
+.p-block-4 {
+    display: block;
+    background-color: lightcoral;
+    position: fixed;
+    top: 200px;
+    left: 200px;
+    z-index: 1004;
+}
+
+.p-block-5 {
+    display: block;
+    background-color: lightsteelblue;
+    position: sticky;
+    top: 10px;
+}

@@ -1,0 +1,57 @@
+.events-container {
+    display: block;
+    margin: 20px;
+}
+
+.level {
+    display: block;
+    border: 1px solid;
+    margin: 5px;
+}
+
+.level-1 {
+    height: 400px;
+    width: 400px;
+    background-color: lightskyblue;
+}
+
+.level-2 {
+    height: 300px;
+    width: 300px;
+    background-color: lightgreen;
+}
+
+.level-3 {
+    height: 200px;
+    width: 200px;
+    background-color: lightpink;
+}
+
+.level-4 {
+    height: 100px;
+    width: 100px;
+    background-color: lightsteelblue;
+}
+
+.level > .button-group {
+    display: block;
+    width: 50px;
+    height: 30px;
+    margin: 10px;
+}
+
+.button-group > button {
+    height: 25px; 
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px 0px lightgrey;
+}
+
+.button-group > button:focus{
+    outline: none;
+}
+
+.button-group > button:active{
+    box-shadow: inset 3px 3px 3px 0px lightgrey;
+}

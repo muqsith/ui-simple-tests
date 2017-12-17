@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+.general-info {
+    margin-left: 10px;
+}
+
+.dummy-text {
+    margin: 8px;
+}
