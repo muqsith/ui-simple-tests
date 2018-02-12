@@ -7,10 +7,14 @@ const path = require('path'),
     ;
 
 const config = {
-    entry: path.resolve(__dirname, 'js', 'app.js'),
+    entry: {
+            app: path.resolve(__dirname, 'js', 'app.js'),
+            headertest: path.resolve(__dirname, 'js', 'header-test.js'),
+            tinymcetest: path.resolve(__dirname, 'js', 'tinymce-test.js')
+    },
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: '[name].js'
+        filename: '[name].[hash].js'
     },
     devtool: (WEBPACK_MODE === 'build') ? false : 'source-map',
     module: {
@@ -36,7 +40,19 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'htmls', 'index.html')
+            template: path.resolve(__dirname, 'htmls', 'index.html'),
+            filename: 'index.html',
+            chunks: ['app']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'htmls', 'header-test.html'),
+            filename: 'header-test.html',
+            chunks: ['headertest']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'htmls', 'tinymce-test.html'),
+            filename: 'tinymce-test.html',
+            chunks: ['tinymcetest']
         }),
         new ExtractTextPlugin('main.css'),
         new CopyWebpackPlugin([
@@ -47,6 +63,18 @@ const config = {
             {
                 from: path.resolve(__dirname, 'htmls'),
                 to: path.resolve(__dirname, 'public')
+            },
+            {
+                from: path.resolve(__dirname, 'node_modules','tinymce','themes'),
+                to: path.resolve(__dirname, 'public', 'themes')
+            },
+            {
+                from: path.resolve(__dirname, 'node_modules','tinymce','plugins'),
+                to: path.resolve(__dirname, 'public', 'plugins')
+            },
+            {
+                from: path.resolve(__dirname, 'node_modules','tinymce','skins'),
+                to: path.resolve(__dirname, 'public', 'skins')
             }
         ])
     ]
