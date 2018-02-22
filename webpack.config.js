@@ -10,7 +10,8 @@ const config = {
     entry: {
             app: path.resolve(__dirname, 'js', 'app.js'),
             headertest: path.resolve(__dirname, 'js', 'header-test.js'),
-            tinymcetest: path.resolve(__dirname, 'js', 'tinymce-test.js')
+            tinymcetest: path.resolve(__dirname, 'js', 'tinymce-test.js'),
+            dragdrop: path.resolve(__dirname, 'js', 'dragdrop.js')
     },
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -53,6 +54,11 @@ const config = {
             template: path.resolve(__dirname, 'htmls', 'tinymce-test.html'),
             filename: 'tinymce-test.html',
             chunks: ['tinymcetest']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'htmls', 'drag-drop.html'),
+            filename: 'drag-drop.html',
+            chunks: ['dragdrop']
         }),
         new ExtractTextPlugin('main.css'),
         new CopyWebpackPlugin([
