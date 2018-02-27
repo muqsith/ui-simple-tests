@@ -5,36 +5,48 @@
 .slider {
     width: 80%;
     height: 100px;
+    background: lightpink;
     border: 1px solid black;
+    position: relative;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-start;
     align-items: center;
+    overflow: hidden;
 }
 
 .slider > button {
-    position: relative;
+    position: absolute;
 }
 
 .slider .right-button {
     order: 2;
-    flex-shrink: 3;
-    flex-grow: 0;
+    right: 0;
 }
 
 .slider .left-button {
     order: 0;
-    flex-shrink: 3;
-    flex-grow: 0;
+    left: 0;
 }
 
-.image-container {
+.images-container {
     order: 1;
-    flex-grow: 3;
-    flex-shrink: 0;
-    width: 100%;
-    height: 100%;
-    background: lightpink;
-    border: 2px solid red;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    transition: margin-left 0.5s ease-out;
+    cursor: pointer;
+}
+
+.image-box {
+    width: 80px;
+    height: 80px;
+    border: 1px solid;
     display: block;
+    margin: 2px;
+}
+
+.image-like-span {
+    font-weight: bold;
+    font-size: 72px;
 }
