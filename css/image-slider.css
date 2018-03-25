@@ -34,7 +34,7 @@
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    transition: margin-left 0.5s ease-out;
+    transition: margin-left 1s ease-in-out;
     cursor: pointer;
 }
 
