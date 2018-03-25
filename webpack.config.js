@@ -59,6 +59,7 @@ const config = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'htmls', 'drag-drop.html'),
             filename: 'drag-drop.html',
+            inject: 'head',
             chunks: ['dragdrop']
         }),
         new HtmlWebpackPlugin({
