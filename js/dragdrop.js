@@ -1,18 +1,12 @@
+import applyPerformanceWrapper from 'performance-wrapper';
+import prettyMs from 'pretty-ms';
+
 console.log('dragdrop.js loaded ...');
 
 let x = 0, y = 0;
 
-
-window.onDragM = function onDragM(e) {
-
-    //console.log('onDragM: ', e);
-    let t = e.target;
-    x = e.pageX;
-    y = e.pageY;
-    console.log('Current: ', t.style.getPropertyValue('top'), t.style.getPropertyValue('left'));
-
-    setTimeout(() => {
-
+class DnD {
+    move(t) {
         //let cStyle = window.getComputedStyle(e.target);
         //console.log(cStyle.getPropertyValue('top'), cStyle.getPropertyValue('left'));
         if (x, y) {
@@ -20,44 +14,61 @@ window.onDragM = function onDragM(e) {
             t.style.left = x + 'px';
             t.style.top = y + 'px';
         }
-    }, 10);
+    }
+    OnDragM(e, cb) {
+
+        //console.log('onDragM: ', e);
+        let t = e.target;
+        x = e.pageX;
+        y = e.pageY;
+        console.log('Current: ', t.style.getPropertyValue('top'), t.style.getPropertyValue('left'));
+
+        setTimeout(() => {
+            cb(t);
+        }, 10);
+    }
+
+
+    OnDragEndM(e) {
+        //console.log('Event OnDragEnd fired');
+    }
+
+
+    OnDragEnterM(e) {
+        //console.log('Event OnDragEnter fired');
+    }
+
+
+    OnDragExitM(e) {
+        //console.log('Event OnDragExit fired');
+    }
+
+
+    OnDragLeaveM(e) {
+        //console.log('Event OnDragLeave fired');
+    }
+
+
+    OnDragOverM(e) {
+        //console.log('Event OnDragOver fired');
+    }
+
+
+    OnDragStartM(e) {
+        //console.log('Event OnDragStart fired');
+    }
+
+
+    OnDropM(e) {
+        //console.log('Event OnDrop fired');
+    }
+
+    Clickkk(e) {
+        console.log('Clicked');
+    }
+
 }
 
-
-window.onDragEndM = function onDragEndM(e) {
-    //console.log('Event OnDragEnd fired');
-}
-
-
-window.onDragEnterM = function onDragEnterM(e) {
-    //console.log('Event OnDragEnter fired');
-}
-
-
-window.onDragExitM = function onDragExitM(e) {
-    //console.log('Event OnDragExit fired');
-}
-
-
-window.onDragLeaveM = function onDragLeaveM(e) {
-    //console.log('Event OnDragLeave fired');
-}
-
-
-window.onDragOverM = function onDragOverM(e) {
-    //console.log('Event OnDragOver fired');
-}
-
-
-window.onDragStartM = function onDragStartM(e) {
-    //console.log('Event OnDragStart fired');
-}
-
-
-window.onDropM = function onDropM(e) {
-    //console.log('Event OnDrop fired');
-}
-
-window.clickkk = function clickkk(e) {
-    console.log('Clicked');
-}
+window.dnd = applyPerformanceWrapper(new DnD(), 'dnd', (perf) => {
+    console.log(`function ${perf.functionName} with arguments ${perf.args} took ${prettyMs(perf.endTime - perf.startTime)}` );
+});

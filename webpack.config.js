@@ -12,7 +12,9 @@ const config = {
             headertest: path.resolve(__dirname, 'js', 'header-test.js'),
             tinymcetest: path.resolve(__dirname, 'js', 'tinymce-test.js'),
             dragdrop: path.resolve(__dirname, 'js', 'dragdrop.js'),
-            imageslider: path.resolve(__dirname, 'js', 'image-slider.js')
+            imageslider: path.resolve(__dirname, 'js', 'image-slider.js'),
+            assorted: path.resolve(__dirname, 'js', 'assorted-tests.js'),
+            browserfingerprint: path.resolve(__dirname, 'js', 'browser-fingerprint.js')
     },
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -66,6 +68,16 @@ const config = {
             template: path.resolve(__dirname, 'htmls', 'image-slider.html'),
             filename: 'image-slider.html',
             chunks: ['imageslider']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'htmls', 'assorted-tests.html'),
+            filename: 'assorted-tests.html',
+            chunks: ['assorted']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'htmls', 'browser-fingerprint.html'),
+            filename: 'browser-fingerprint.html',
+            chunks: ['browserfingerprint']
         }),
         new ExtractTextPlugin('main.css'),
         new CopyWebpackPlugin([

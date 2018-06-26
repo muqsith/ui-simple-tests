@@ -9,15 +9,15 @@
 <body>
     <div style="height: 30px;
         width:40px; border: 4px dashed; position: absolute; top: 10px; left: 10px;"
-        onclick="clickkk(event)"
-        ondrag="onDragM(event)"
-        ondragend="onDragEndM(event)"
-        ondragenter="onDragEnterM(event)"
-        ondragexit="onDragExitM(event)"
-        ondragleave="onDragLeaveM(event)"
-        ondragover="onDragOverM(event)"
-        ondragstart="onDragStartM(event)"
-        ondrop="onDropM(event)"
+        onclick="dnd.Clickkk(event)"
+        ondrag="dnd.OnDragM(event, dnd.move)"
+        ondragend="dnd.OnDragEndM(event)"
+        ondragenter="dnd.OnDragEnterM(event)"
+        ondragexit="dnd.OnDragExitM(event)"
+        ondragleave="dnd.OnDragLeaveM(event)"
+        ondragover="dnd.OnDragOverM(event)"
+        ondragstart="dnd.OnDragStartM(event)"
+        ondrop="dnd.OnDropM(event)"
         draggable="true"></div>
 </body>
 
