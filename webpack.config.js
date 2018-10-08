@@ -14,7 +14,8 @@ const config = {
             dragdrop: path.resolve(__dirname, 'js', 'dragdrop.js'),
             imageslider: path.resolve(__dirname, 'js', 'image-slider.js'),
             assorted: path.resolve(__dirname, 'js', 'assorted-tests.js'),
-            browserfingerprint: path.resolve(__dirname, 'js', 'browser-fingerprint.js')
+            browserfingerprint: path.resolve(__dirname, 'js', 'browser-fingerprint.js'),
+            d3test: path.resolve(__dirname, 'js', 'd3test.js')
     },
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -79,7 +80,13 @@ const config = {
             filename: 'browser-fingerprint.html',
             chunks: ['browserfingerprint']
         }),
-        new ExtractTextPlugin('main.css'),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'htmls', 'd3test.html'),
+            filename: 'd3test.html',
+            chunks: ['d3test']
+        }),
+        //new ExtractTextPlugin('main.css'),
+        new ExtractTextPlugin('[name]-[hash].min.css'),
         new CopyWebpackPlugin([
             {
                 from: path.resolve(__dirname, 'images'),
