@@ -15,7 +15,8 @@ const config = {
             imageslider: path.resolve(__dirname, 'js', 'image-slider.js'),
             assorted: path.resolve(__dirname, 'js', 'assorted-tests.js'),
             browserfingerprint: path.resolve(__dirname, 'js', 'browser-fingerprint.js'),
-            d3test: path.resolve(__dirname, 'js', 'd3test.js')
+            d3test: path.resolve(__dirname, 'js', 'd3test.js'),
+            koapp: path.resolve(__dirname, 'js', 'koapp')
     },
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -35,6 +36,10 @@ const config = {
                 test: /\.js[x]?$/,
                 exclude: /(node_modules)/,
                 use: 'babel-loader'
+            },
+            {
+                test: /\.ko$/,
+                use: 'html-loader'
             }
         ]
     },
@@ -85,6 +90,11 @@ const config = {
             filename: 'd3test.html',
             chunks: ['d3test']
         }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'htmls', 'koapp.html'),
+            filename: 'koapp.html',
+            chunks: ['koapp']
+        }),
         //new ExtractTextPlugin('main.css'),
         new ExtractTextPlugin('[name]-[hash].min.css'),
         new CopyWebpackPlugin([
@@ -107,6 +117,10 @@ const config = {
             {
                 from: path.resolve(__dirname, 'node_modules','tinymce','skins'),
                 to: path.resolve(__dirname, 'public', 'skins')
+            },
+            {
+                from: path.resolve(__dirname, '3rdparty'),
+                to: path.resolve(__dirname, 'public', '3rdparty')
             }
         ])
     ]

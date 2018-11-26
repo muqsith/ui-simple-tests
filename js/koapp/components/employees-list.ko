@@ -1,0 +1,3 @@
+<div>
+    <span data-bind="text: firstName"></span>
+</div>
