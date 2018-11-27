@@ -91,6 +91,10 @@ const config = {
             chunks: ['d3test']
         }),
         new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'htmls', 'google-maps.html'),
+            filename: 'google-maps.html'
+        }),
+        new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'htmls', 'koapp.html'),
             filename: 'koapp.html',
             chunks: ['koapp']
