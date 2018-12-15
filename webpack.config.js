@@ -1,10 +1,13 @@
-const path = require('path'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    UglifyJsPlugin = require('uglifyjs-webpack-plugin'),
-    CopyWebpackPlugin = require('copy-webpack-plugin'),
-    WEBPACK_MODE = process.env.npm_lifecycle_event
-    ;
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const customMiddleware = require('./server/lib');
+
+const WEBPACK_MODE = process.env.npm_lifecycle_event;
+
 
 const config = {
     entry: {
@@ -46,7 +49,8 @@ const config = {
     devServer: {
         contentBase: path.join(__dirname, "public"),
         compress: true,
-        port: 8899
+        port: 8899,
+        before: customMiddleware
     },
     plugins: [
         new HtmlWebpackPlugin({
