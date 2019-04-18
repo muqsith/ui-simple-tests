@@ -20,7 +20,8 @@ const config = {
             browserfingerprint: path.resolve(__dirname, 'js', 'browser-fingerprint.js'),
             d3test: path.resolve(__dirname, 'js', 'd3test.js'),
             koapp: path.resolve(__dirname, 'js', 'koapp'),
-            simplejstests: path.resolve(__dirname, 'js', 'simple-js-tests')
+            simplejstests: path.resolve(__dirname, 'js', 'simple-js-tests'),
+            mediatest: path.resolve(__dirname, 'js', 'media-test.js')
     },
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -103,6 +104,11 @@ const config = {
             template: path.resolve(__dirname, 'htmls', 'koapp.html'),
             filename: 'koapp.html',
             chunks: ['koapp']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'htmls', 'media-test.html'),
+            filename: 'media-test.html',
+            chunks: ['mediatest']
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'htmls', 'simple-js-tests.html'),
