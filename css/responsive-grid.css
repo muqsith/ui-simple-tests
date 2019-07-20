@@ -1,0 +1,33 @@
+.rgrid-container {
+    background-color: #fff;
+    display: grid;
+    border: 1px solid;
+    width: 500px;
+    height: 500px;
+    margin: 2% 25%;
+
+    grid-template-columns: 100px 200px;
+    grid-template-rows: 200px 100px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-areas: "..""..";
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.rg1 {
+    background-color: lightskyblue;
+}
+
+.rg2 {
+    background-color: lightgreen;
+}
+
+.rg3 {
+    background-color: lightpink;
+}
+
+.rg4 {
+    background-color: lightsteelblue;
+}
