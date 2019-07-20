@@ -52,7 +52,8 @@ const config = {
         contentBase: path.join(__dirname, "public"),
         compress: true,
         port: 8899,
-        before: customMiddleware
+        before: customMiddleware,
+        disableHostCheck: true
     },
     plugins: [
         new HtmlWebpackPlugin({
