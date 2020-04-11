@@ -21,7 +21,8 @@ const config = {
             d3test: path.resolve(__dirname, 'js', 'd3test.js'),
             koapp: path.resolve(__dirname, 'js', 'koapp'),
             simplejstests: path.resolve(__dirname, 'js', 'simple-js-tests'),
-            mediatest: path.resolve(__dirname, 'js', 'media-test.js')
+            mediatest: path.resolve(__dirname, 'js', 'media-test.js'),
+            fingerprint: path.resolve(__dirname, 'js', 'fingerprint.js')
     },
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -115,6 +116,11 @@ const config = {
             template: path.resolve(__dirname, 'htmls', 'simple-js-tests.html'),
             filename: 'simple-js-tests.html',
             chunks: ['simplejstests']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'htmls', 'fingerprint.html'),
+            filename: 'fingerprint.html',
+            chunks: ['fingerprint']
         }),
         //new ExtractTextPlugin('main.css'),
         new ExtractTextPlugin('[name]-[hash].min.css'),
