@@ -22,7 +22,8 @@ const config = {
             koapp: path.resolve(__dirname, 'js', 'koapp'),
             simplejstests: path.resolve(__dirname, 'js', 'simple-js-tests'),
             mediatest: path.resolve(__dirname, 'js', 'media-test.js'),
-            fingerprint: path.resolve(__dirname, 'js', 'fingerprint.js')
+            fingerprint: path.resolve(__dirname, 'js', 'fingerprint.js'),
+            rxjstests: path.resolve(__dirname, 'js', 'rxjstests')
     },
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -121,6 +122,11 @@ const config = {
             template: path.resolve(__dirname, 'htmls', 'fingerprint.html'),
             filename: 'fingerprint.html',
             chunks: ['fingerprint']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'htmls', 'rxjstests.html'),
+            filename: 'rxjstests.html',
+            chunks: ['rxjstests']
         }),
         //new ExtractTextPlugin('main.css'),
         new ExtractTextPlugin('[name]-[hash].min.css'),
